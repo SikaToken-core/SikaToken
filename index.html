@@ -1,81 +1,119 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SikaToken | Digital Wealth on BNB Smart Chain</title>
+<title>SikaToken | SIKA</title>
 
 <style>
 
 body{
-font-family: Arial;
 margin:0;
-background:#0b0b0b;
+font-family:Arial;
+background:#000;
 color:white;
 }
 
 header{
+background:black;
+padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 40px;
-background:#111;
+border-bottom:2px solid #f3ba2f;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#f3ba2f;
 }
 
 nav a{
-color:white;
-margin-left:20px;
+margin:0 15px;
 text-decoration:none;
+color:white;
+font-weight:bold;
 }
 
 .hero{
 text-align:center;
 padding:120px 20px;
-background:linear-gradient(120deg,#0b0b0b,#1c1c1c);
+background:linear-gradient(black,#0f3d1e);
 }
 
 .hero h1{
-font-size:52px;
-margin-bottom:20px;
+font-size:50px;
+color:#f3ba2f;
 }
 
-.button{
-padding:14px 28px;
-background:#f5b942;
+.hero p{
+font-size:20px;
+}
+
+.buttons{
+margin-top:30px;
+}
+
+.buttons a{
+background:#f3ba2f;
 color:black;
+padding:14px 24px;
+margin:10px;
 text-decoration:none;
 border-radius:6px;
-margin:10px;
-display:inline-block;
 font-weight:bold;
 }
 
 .section{
 padding:80px 20px;
-max-width:1100px;
-margin:auto;
+text-align:center;
 }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+.section h2{
+color:#f3ba2f;
+font-size:34px;
+}
+
+.tokenomics{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+margin-top:40px;
 }
 
 .card{
-background:#161616;
+background:#111;
 padding:25px;
 border-radius:10px;
-text-align:center;
+width:220px;
+border:1px solid #f3ba2f;
+}
+
+.socials{
+margin-top:40px;
+}
+
+.socials a{
+margin:10px;
+display:inline-block;
+background:#f3ba2f;
+color:black;
+padding:12px 18px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
 }
 
 footer{
-background:#111;
-padding:40px;
+background:black;
+padding:30px;
 text-align:center;
+border-top:1px solid #333;
 }
 
 </style>
@@ -86,34 +124,33 @@ text-align:center;
 
 <header>
 
-<h2>SIKA</h2>
+<div class="logo">SIKA TOKEN</div>
 
 <nav>
-
 <a href="#about">About</a>
 <a href="#tokenomics">Tokenomics</a>
-<a href="#ecosystem">Ecosystem</a>
 <a href="#roadmap">Roadmap</a>
-<a href="#buy">Buy</a>
-
+<a href="#whitepaper">Whitepaper</a>
+<a href="#community">Community</a>
 </nav>
 
 </header>
 
 <section class="hero">
 
-<h1>SikaToken</h1>
+<h1>SikaToken (SIKA)</h1>
 
-<p>Digital Wealth built on BNB Smart Chain</p>
+<p>The Future of Decentralized Value on BSC</p>
 
-<a class="button" href="#">Connect Wallet</a>
+<div class="buttons">
 
-<a class="button"
-href="https://pancakeswap.finance/swap?outputCurrency=CONTRACT_ADDRESS">
+<a href="#">Buy on PancakeSwap</a>
 
-Buy SIKA
+<a href="#">View Contract</a>
 
-</a>
+<a href="#">DEXTools Chart</a>
+
+</div>
 
 </section>
 
@@ -123,13 +160,9 @@ Buy SIKA
 
 <p>
 
-SikaToken (SIKA) is a decentralized digital asset built on the BNB Smart Chain.
-
-The project aims to promote financial empowerment, transparency,
-and community ownership through blockchain technology.
-
-With fast transactions and low fees, SIKA provides a modern digital
-currency accessible to users around the world.
+SikaToken is a decentralized digital asset designed to power a transparent,
+community-driven financial ecosystem. Built on Binance Smart Chain,
+SIKA focuses on accessibility, security, and sustainable growth.
 
 </p>
 
@@ -139,90 +172,44 @@ currency accessible to users around the world.
 
 <h2>Tokenomics</h2>
 
-<p>Total Supply: 1,000,000,000 SIKA</p>
+<div class="tokenomics">
 
-<div class="cards">
+<div class="card">
+<h3>Total Supply</h3>
+<p>1,000,000,000 SIKA</p>
+</div>
 
 <div class="card">
 <h3>Liquidity</h3>
 <p>30%</p>
-<p>300,000,000</p>
 </div>
 
 <div class="card">
 <h3>Community</h3>
 <p>50%</p>
-<p>500,000,000</p>
 </div>
 
 <div class="card">
 <h3>Team (Vested)</h3>
 <p>5%</p>
-<p>50,000,000</p>
 </div>
 
 <div class="card">
 <h3>Marketing</h3>
 <p>5%</p>
-<p>50,000,000</p>
 </div>
 
 <div class="card">
 <h3>Treasury</h3>
 <p>5%</p>
-<p>50,000,000</p>
 </div>
 
 <div class="card">
 <h3>Partnerships</h3>
 <p>5%</p>
-<p>50,000,000</p>
 </div>
 
 </div>
-
-</section>
-
-<section id="ecosystem" class="section">
-
-<h2>Sika Ecosystem</h2>
-
-<p>
-
-The Sika ecosystem will expand beyond the core token to include
-staking, governance, and treasury management systems.
-
-</p>
-
-<ul>
-
-<li>Staking Contract – earn rewards for holding SIKA</li>
-
-<li>Governance – community voting for future upgrades</li>
-
-<li>Treasury – funding development and partnerships</li>
-
-<li>Buyback & Burn – strengthening token value</li>
-
-</ul>
-
-</section>
-
-<section id="buy" class="section">
-
-<h2>How to Buy SIKA</h2>
-
-<ol>
-
-<li>Install MetaMask or Trust Wallet</li>
-
-<li>Add BNB to your wallet</li>
-
-<li>Connect to PancakeSwap</li>
-
-<li>Swap BNB for SIKA</li>
-
-</ol>
 
 </section>
 
@@ -230,32 +217,78 @@ staking, governance, and treasury management systems.
 
 <h2>Roadmap</h2>
 
-<ul>
+<p>
 
-<li>Token deployment on BNB Smart Chain</li>
+Phase 1  
+Project development  
+Smart contract creation  
+Website launch  
 
-<li>Website launch</li>
+<br><br>
 
-<li>PancakeSwap liquidity launch</li>
+Phase 2  
+Token launch  
+Liquidity pool creation  
+Community expansion  
 
-<li>Community growth</li>
+<br><br>
 
-<li>Staking platform</li>
+Phase 3  
+DEX listings  
+Partnership integrations  
+Staking platform  
 
-<li>Ecosystem expansion</li>
+<br><br>
 
-</ul>
+Phase 4  
+Global ecosystem expansion  
+Governance system  
+Sika ecosystem growth
+
+</p>
+
+</section>
+
+<section id="whitepaper" class="section">
+
+<h2>Whitepaper</h2>
+
+<p>
+
+Download the complete SikaToken whitepaper to understand
+the vision, tokenomics, and ecosystem development strategy.
+
+</p>
+
+<a href="whitepaper.pdf" class="buttons">Download Whitepaper</a>
+
+</section>
+
+<section id="community" class="section">
+
+<h2>Join the Community</h2>
+
+<div class="socials">
+
+<a href="https://t.me/SikaTokenNews">Telegram Channel</a>
+
+<a href="https://t.me/+AnWHJUKYeJM1MDM0">Telegram Group</a>
+
+<a href="https://x.com/SikaToken">X (Twitter)</a>
+
+<a href="#">Discord</a>
+
+<a href="https://github.com/sikatoken-core">GitHub</a>
+
+</div>
 
 </section>
 
 <footer>
 
-<p>© 2026 SikaToken</p>
-
-<p>Built on BNB Smart Chain</p>
+<p>© 2026 SikaToken. All Rights Reserved.</p>
 
 </footer>
 
 </body>
-
 </html>
