@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SikaToken | SIKA</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -18,18 +21,25 @@ color:white;
 }
 
 header{
-background:black;
-padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:20px 40px;
+background:black;
 border-bottom:2px solid #f3ba2f;
 }
 
 .logo{
+display:flex;
+align-items:center;
+gap:10px;
 font-size:24px;
 font-weight:bold;
 color:#f3ba2f;
+}
+
+.logo img{
+width:40px;
 }
 
 nav a{
@@ -39,10 +49,20 @@ color:white;
 font-weight:bold;
 }
 
+nav a:hover{
+color:#f3ba2f;
+}
+
+.header-socials a{
+color:#f3ba2f;
+margin-left:15px;
+font-size:18px;
+}
+
 .hero{
 text-align:center;
 padding:120px 20px;
-background:linear-gradient(black,#0f3d1e);
+background:linear-gradient(#000,#0c2e18);
 }
 
 .hero h1{
@@ -54,18 +74,19 @@ color:#f3ba2f;
 font-size:20px;
 }
 
-.buttons{
-margin-top:30px;
-}
-
 .buttons a{
 background:#f3ba2f;
 color:black;
 padding:14px 24px;
 margin:10px;
+display:inline-block;
 text-decoration:none;
-border-radius:6px;
+border-radius:8px;
 font-weight:bold;
+}
+
+.buttons a:hover{
+background:#ffd84d;
 }
 
 .section{
@@ -79,38 +100,32 @@ font-size:34px;
 }
 
 .tokenomics{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-margin-top:40px;
+width:400px;
+margin:auto;
 }
 
-.card{
-background:#111;
-padding:25px;
-border-radius:10px;
-width:220px;
-border:1px solid #f3ba2f;
-}
-
-.socials{
+.price-widget{
 margin-top:40px;
 }
 
 .socials a{
 margin:10px;
-display:inline-block;
+display:inline-flex;
+align-items:center;
+gap:8px;
 background:#f3ba2f;
 color:black;
-padding:12px 18px;
-border-radius:6px;
+padding:12px 20px;
+border-radius:8px;
 text-decoration:none;
 font-weight:bold;
 }
 
+.socials a:hover{
+background:#ffd84d;
+}
+
 footer{
-background:black;
 padding:30px;
 text-align:center;
 border-top:1px solid #333;
@@ -124,15 +139,29 @@ border-top:1px solid #333;
 
 <header>
 
-<div class="logo">SIKA TOKEN</div>
+<div class="logo">
+<img src="logo.png">
+SIKA TOKEN
+</div>
 
 <nav>
+
 <a href="#about">About</a>
 <a href="#tokenomics">Tokenomics</a>
-<a href="#roadmap">Roadmap</a>
-<a href="#whitepaper">Whitepaper</a>
+<a href="#chart">Chart</a>
 <a href="#community">Community</a>
+
 </nav>
+
+<div class="header-socials">
+
+<a href="https://t.me/SikaTokenNews"><i class="fa-brands fa-telegram"></i></a>
+
+<a href="https://x.com/SikaToken"><i class="fa-brands fa-x-twitter"></i></a>
+
+<a href="#"><i class="fa-brands fa-discord"></i></a>
+
+</div>
 
 </header>
 
@@ -144,11 +173,13 @@ border-top:1px solid #333;
 
 <div class="buttons">
 
-<a href="#">Buy on PancakeSwap</a>
+<a href="https://pancakeswap.finance/">Buy on PancakeSwap</a>
 
-<a href="#">View Contract</a>
+<a href="https://bscscan.com/">View Contract</a>
 
-<a href="#">DEXTools Chart</a>
+<a href="#chart">DEXTools Chart</a>
+
+<button onclick="connectWallet()">Connect Wallet</button>
 
 </div>
 
@@ -160,9 +191,7 @@ border-top:1px solid #333;
 
 <p>
 
-SikaToken is a decentralized digital asset designed to power a transparent,
-community-driven financial ecosystem. Built on Binance Smart Chain,
-SIKA focuses on accessibility, security, and sustainable growth.
+SikaToken is a decentralized digital asset built on Binance Smart Chain designed to power a transparent, secure, and community-driven financial ecosystem.
 
 </p>
 
@@ -174,93 +203,40 @@ SIKA focuses on accessibility, security, and sustainable growth.
 
 <div class="tokenomics">
 
-<div class="card">
-<h3>Total Supply</h3>
-<p>1,000,000,000 SIKA</p>
-</div>
-
-<div class="card">
-<h3>Liquidity</h3>
-<p>30%</p>
-</div>
-
-<div class="card">
-<h3>Community</h3>
-<p>50%</p>
-</div>
-
-<div class="card">
-<h3>Team (Vested)</h3>
-<p>5%</p>
-</div>
-
-<div class="card">
-<h3>Marketing</h3>
-<p>5%</p>
-</div>
-
-<div class="card">
-<h3>Treasury</h3>
-<p>5%</p>
-</div>
-
-<div class="card">
-<h3>Partnerships</h3>
-<p>5%</p>
-</div>
+<canvas id="tokenChart"></canvas>
 
 </div>
 
 </section>
 
-<section id="roadmap" class="section">
+<section class="section price-widget">
 
-<h2>Roadmap</h2>
+<h2>Live BNB Price</h2>
 
-<p>
+<div>
 
-Phase 1  
-Project development  
-Smart contract creation  
-Website launch  
+<iframe src="https://widget.coinlib.io/widget?type=single&theme=dark&coin_id=859&pref_coin_id=1505"
+width="300"
+height="196"
+scrolling="auto"
+marginwidth="0"
+marginheight="0"
+frameborder="0">
+</iframe>
 
-<br><br>
-
-Phase 2  
-Token launch  
-Liquidity pool creation  
-Community expansion  
-
-<br><br>
-
-Phase 3  
-DEX listings  
-Partnership integrations  
-Staking platform  
-
-<br><br>
-
-Phase 4  
-Global ecosystem expansion  
-Governance system  
-Sika ecosystem growth
-
-</p>
+</div>
 
 </section>
 
-<section id="whitepaper" class="section">
+<section id="chart" class="section">
 
-<h2>Whitepaper</h2>
+<h2>DEXTools Chart</h2>
 
-<p>
-
-Download the complete SikaToken whitepaper to understand
-the vision, tokenomics, and ecosystem development strategy.
-
-</p>
-
-<a href="whitepaper.pdf" class="buttons">Download Whitepaper</a>
+<iframe
+width="100%"
+height="500"
+src="https://www.dextools.io/widget-chart/en/bnb/pe-light/0x0000000000000000000000000000000000000000">
+</iframe>
 
 </section>
 
@@ -270,15 +246,33 @@ the vision, tokenomics, and ecosystem development strategy.
 
 <div class="socials">
 
-<a href="https://t.me/SikaTokenNews">Telegram Channel</a>
+<a href="https://t.me/SikaTokenNews">
 
-<a href="https://t.me/+AnWHJUKYeJM1MDM0">Telegram Group</a>
+<i class="fa-brands fa-telegram"></i>
+Telegram Channel
 
-<a href="https://x.com/SikaToken">X (Twitter)</a>
+</a>
 
-<a href="#">Discord</a>
+<a href="https://t.me/+AnWHJUKYeJM1MDM0">
 
-<a href="https://github.com/sikatoken-core">GitHub</a>
+<i class="fa-brands fa-telegram"></i>
+Telegram Group
+
+</a>
+
+<a href="https://x.com/SikaToken">
+
+<i class="fa-brands fa-x-twitter"></i>
+X (Twitter)
+
+</a>
+
+<a href="#">
+
+<i class="fa-brands fa-discord"></i>
+Discord
+
+</a>
 
 </div>
 
@@ -290,5 +284,51 @@ the vision, tokenomics, and ecosystem development strategy.
 
 </footer>
 
+<script>
+
+function connectWallet(){
+
+if(typeof window.ethereum !== 'undefined'){
+
+ethereum.request({ method: 'eth_requestAccounts' })
+
+}else{
+
+alert("Install MetaMask wallet")
+
+}
+
+}
+
+const ctx = document.getElementById('tokenChart');
+
+new Chart(ctx, {
+type: 'pie',
+data: {
+labels: [
+'Liquidity',
+'Community',
+'Team',
+'Marketing',
+'Treasury',
+'Partnerships'
+],
+datasets: [{
+data: [30,50,5,5,5,5],
+backgroundColor:[
+'#f3ba2f',
+'#00ff88',
+'#ffaa00',
+'#00ccff',
+'#ff4444',
+'#aa66ff'
+]
+}]
+}
+});
+
+</script>
+
 </body>
+
 </html>
