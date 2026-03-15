@@ -1,190 +1,615 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SikaToken</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SikaToken | SIKA • Community First on BSC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
+        
+        :root {
+            --gold: #facc15;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
 
-<style>
+        .hero-bg {
+            background: radial-gradient(circle at 50% 30%, rgba(250, 204, 21, 0.15) 0%, transparent 60%),
+                        linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+        }
 
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0a0a0a;
-color:white;
-text-align:center;
-}
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #facc15;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
 
-header{
-padding:40px 20px;
-}
+        .coin-float {
+            animation: float 4s ease-in-out infinite;
+        }
 
-.logo{
-width:150px;
-}
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+        }
 
-h1{
-font-size:42px;
-margin-top:10px;
-color:#f5c542;
-}
+        .section-header {
+            background: linear-gradient(90deg, #facc15, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-nav{
-margin-top:20px;
-}
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgb(250 204 21 / 0.2);
+        }
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.hero{
-padding:60px 20px;
-}
-
-.hero h2{
-font-size:36px;
-color:#f5c542;
-}
-
-.hero p{
-font-size:18px;
-max-width:700px;
-margin:auto;
-}
-
-.buy-button{
-margin-top:30px;
-display:inline-block;
-padding:15px 30px;
-background:#f5c542;
-color:black;
-font-weight:bold;
-border-radius:8px;
-text-decoration:none;
-}
-
-.section{
-padding:60px 20px;
-}
-
-.tokenomics{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:20px;
-}
-
-.card{
-background:#151515;
-padding:25px;
-border-radius:10px;
-width:200px;
-}
-
-footer{
-padding:40px;
-background:#111;
-margin-top:40px;
-}
-
-</style>
-
+        .token-bar {
+            height: 6px;
+            background: linear-gradient(to right, #facc15, #eab308);
+            border-radius: 9999px;
+        }
+    </style>
 </head>
+<body class="tail-container bg-[#0a0a0a] text-white overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <img src="file_000000004fb471fdbadfcb854bb104a7.png" alt="SikaToken Logo" 
+                     class="h-10 w-10 drop-shadow-[0_0_15px_#facc15]">
+                <div>
+                    <span class="logo-font text-3xl font-bold tracking-tighter text-white">SIKA</span>
+                    <span class="logo-font text-3xl font-bold tracking-tighter text-yellow-400">TOKEN</span>
+                </div>
+            </div>
 
-<body>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-x-10 text-sm font-medium uppercase tracking-widest">
+                <a href="#home" class="nav-link text-gray-300 hover:text-white">Home</a>
+                <a href="#tokenomics" class="nav-link text-gray-300 hover:text-white">Tokenomics</a>
+                <a href="#charts" class="nav-link text-gray-300 hover:text-white">Charts</a>
+                <a href="#roadmap" class="nav-link text-gray-300 hover:text-white">Roadmap</a>
+                <a href="#community" class="nav-link text-gray-300 hover:text-white">Community</a>
+            </div>
 
-<header>
+            <!-- Right side -->
+            <div class="flex items-center gap-x-6">
+                <!-- Social Icons -->
+                <div class="hidden sm:flex items-center gap-x-5 text-2xl">
+                    <a href="https://t.me/SikaTokenNews" target="_blank" 
+                       class="text-[#229ED9] hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="https://t.me/+AnWHJUKYeJM1MDM0" target="_blank" 
+                       class="text-[#229ED9] hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="https://x.com/SikaToken" target="_blank" 
+                       class="text-white hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
 
-<img src="file_000000004fb471fdbadfcb854bb104a7.png" class="logo">
+                <!-- Buy Button -->
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xYOUR_CONTRACT_ADDRESS_HERE" 
+                   target="_blank"
+                   class="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-8 py-3.5 rounded-2xl flex items-center gap-x-3 transition-all shadow-lg shadow-yellow-400/30 text-sm uppercase tracking-widest">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Buy on PancakeSwap</span>
+                </a>
 
-<h1>SikaToken</h1>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn"
+                        class="md:hidden text-3xl text-white">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<nav>
-<a href="#">Home</a>
-<a href="#">Tokenomics</a>
-<a href="#">Roadmap</a>
-<a href="#">Community</a>
-</nav>
+    <!-- HERO -->
+    <section id="home" class="hero-bg min-h-screen pt-20 flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="pt-12 lg:pt-0">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm mb-6 border border-yellow-400/30">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span class="font-mono uppercase tracking-[2px] text-yellow-300 text-xs">LIVE ON BSC</span>
+                </div>
+                
+                <h1 class="logo-font text-7xl lg:text-8xl font-bold leading-none tracking-tighter mb-4">
+                    SIKA<span class="text-yellow-400">TOKEN</span>
+                </h1>
+                <p class="text-3xl text-gray-300 mb-8 max-w-lg">
+                    Money for the People.<br>
+                    <span class="text-yellow-300">Fair. Transparent. Community Driven.</span>
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xYOUR_CONTRACT_ADDRESS_HERE" target="_blank"
+                       class="group bg-white text-black hover:bg-yellow-300 px-10 py-6 rounded-3xl font-semibold text-xl flex items-center gap-x-4 transition-all">
+                        <i class="fa-solid fa-cart-shopping group-active:scale-110 transition"></i>
+                        BUY SIKA NOW
+                    </a>
+                    
+                    <a href="#whitepaper" 
+                       class="border-2 border-yellow-400 hover:bg-yellow-400 hover:text-black px-10 py-6 rounded-3xl font-semibold text-xl flex items-center gap-x-4 transition-all">
+                        <i class="fa-solid fa-file-lines"></i>
+                        WHITEPAPER
+                    </a>
+                </div>
 
-</header>
+                <!-- Contract & Supply -->
+                <div class="mt-16 grid grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-xs text-gray-500 font-mono tracking-widest">TOTAL SUPPLY</div>
+                        <div class="text-4xl font-mono font-bold text-yellow-400 mt-1">1,000,000,000</div>
+                        <div class="text-[10px] text-gray-500">SIKA</div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 font-mono tracking-widest">CONTRACT</div>
+                        <a href="https://bscscan.com/address/0xYOUR_CONTRACT_ADDRESS_HERE" target="_blank"
+                           class="block font-mono text-sm text-emerald-400 hover:text-emerald-300 transition break-all">
+                            0xYOUR_CONTRACT_ADDRESS_HERE
+                        </a>
+                        <div class="text-[10px] text-emerald-400 mt-1 flex items-center gap-1 justify-center">
+                            <i class="fa-solid fa-circle-check"></i> VERIFIED
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 font-mono tracking-widest">DECIMALS</div>
+                        <div class="text-4xl font-mono font-bold text-white mt-1">18</div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Right Visual -->
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="relative">
+                    <!-- Main Logo -->
+                    <img src="file_000000004fb471fdbadfcb854bb104a7.png" alt="SikaToken" 
+                         class="w-96 lg:w-[420px] coin-float drop-shadow-[0_0_80px_#facc15]">
+                    
+                    <!-- Floating badges -->
+                    <div class="absolute -top-6 -left-12 bg-zinc-900 border border-yellow-400/50 rounded-2xl px-6 py-4 backdrop-blur-md flex items-center gap-3 shadow-2xl">
+                        <i class="fa-solid fa-lock text-emerald-400 text-2xl"></i>
+                        <div>
+                            <div class="text-xs uppercase tracking-widest">Liquidity</div>
+                            <div class="font-bold text-emerald-400">30% Locked</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-8 right-12 bg-zinc-900 border border-white/30 rounded-2xl px-6 py-4 backdrop-blur-md shadow-2xl">
+                        <div class="flex items-center gap-3">
+                            <div class="text-4xl font-bold text-yellow-400">50%</div>
+                            <div class="text-sm leading-none">
+                                COMMUNITY<br>
+                                <span class="text-emerald-400">ALLOCATION</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<section class="hero">
+        <!-- LIVE BNB PRICE WIDGET -->
+        <div class="absolute top-32 right-8 hidden xl:flex bg-zinc-950 border border-yellow-400/30 rounded-3xl p-8 shadow-2xl backdrop-blur-xl">
+            <div class="text-center">
+                <div class="flex items-center justify-center gap-2 text-xs uppercase tracking-[1px] text-gray-400 mb-3">
+                    <i class="fa-solid fa-coins"></i>
+                    LIVE BNB PRICE
+                </div>
+                <div id="bnb-price" class="font-mono text-6xl font-bold text-emerald-400 tabular-nums">—</div>
+                <div id="bnb-change" class="flex items-center justify-center gap-2 mt-3 text-sm font-medium"></div>
+            </div>
+        </div>
 
-<h2>The Gold Standard of Crypto</h2>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center gap-2 text-xs text-gray-500">
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-gray-400 to-transparent"></div>
+            SCROLL
+        </div>
+    </section>
 
-<p>
-SikaToken is a community-powered cryptocurrency designed
-to bring value, transparency, and decentralized finance
-to the global blockchain ecosystem.
-</p>
+    <!-- TOKENOMICS -->
+    <section id="tokenomics" class="py-28 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-block px-6 py-2 bg-yellow-400/10 text-yellow-400 text-sm font-medium rounded-3xl mb-4">CORRECT ALLOCATION</div>
+                <h2 class="section-header text-6xl font-bold tracking-tighter">Tokenomics</h2>
+            </div>
 
-<a class="buy-button" href="#">Buy on PancakeSwap</a>
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Chart -->
+                <div class="lg:col-span-7 flex justify-center">
+                    <div class="relative w-full max-w-[460px]">
+                        <canvas id="tokenomicsChart" class="w-full"></canvas>
+                        
+                        <!-- Center label -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="text-center">
+                                <div class="text-5xl font-bold text-yellow-400">1B</div>
+                                <div class="text-xs uppercase tracking-widest text-gray-400 -mt-1">TOTAL SUPPLY</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</section>
+                <!-- Allocation List -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="card-hover bg-zinc-900/80 border border-white/5 rounded-3xl p-7 flex justify-between items-center">
+                        <div class="flex items-center gap-x-5">
+                            <div class="w-9 h-9 bg-blue-500 rounded-2xl flex items-center justify-center text-white text-xl">💧</div>
+                            <div>
+                                <div class="font-semibold text-xl">Liquidity Pool</div>
+                                <div class="text-emerald-400 text-sm">Locked for 1 year</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-5xl font-bold text-blue-400">30%</div>
+                            <div class="text-xs text-gray-400 font-mono">300,000,000 SIKA</div>
+                        </div>
+                    </div>
 
+                    <div class="card-hover bg-zinc-900/80 border border-white/5 rounded-3xl p-7 flex justify-between items-center">
+                        <div class="flex items-center gap-x-5">
+                            <div class="w-9 h-9 bg-emerald-500 rounded-2xl flex items-center justify-center text-white text-xl">👥</div>
+                            <div>
+                                <div class="font-semibold text-xl">Community &amp; Rewards</div>
+                                <div class="text-emerald-400 text-sm">Airdrops • Staking • Marketing</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-5xl font-bold text-emerald-400">50%</div>
+                            <div class="text-xs text-gray-400 font-mono">500,000,000 SIKA</div>
+                        </div>
+                    </div>
 
-<section class="section">
+                    <div class="grid grid-cols-3 gap-4">
+                        <!-- Team -->
+                        <div class="card-hover bg-zinc-900/80 border border-white/5 rounded-3xl p-6">
+                            <div class="flex justify-between">
+                                <div class="text-amber-400 text-4xl font-bold">5%</div>
+                                <div class="text-right">
+                                    <div class="font-medium">Team</div>
+                                    <div class="text-[10px] text-gray-500">Vested 12 months</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Marketing -->
+                        <div class="card-hover bg-zinc-900/80 border border-white/5 rounded-3xl p-6">
+                            <div class="flex justify-between">
+                                <div class="text-purple-400 text-4xl font-bold">5%</div>
+                                <div class="text-right">
+                                    <div class="font-medium">Marketing</div>
+                                    <div class="text-[10px] text-gray-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Partnerships -->
+                        <div class="card-hover bg-zinc-900/80 border border-white/5 rounded-3xl p-6">
+                            <div class="flex justify-between">
+                                <div class="text-pink-400 text-4xl font-bold">5%</div>
+                                <div class="text-right">
+                                    <div class="font-medium">Partnerships</div>
+                                    <div class="text-[10px] text-gray-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<h2>Tokenomics</h2>
+                    <div class="text-center text-xs text-gray-400 font-mono pt-4">
+                        100% of supply allocated • Ownership renounced • No taxes
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="tokenomics">
+    <!-- CHARTS SECTION -->
+    <section id="charts" class="py-28 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-4 tracking-tighter">Live Market Data</h2>
+            <p class="text-center text-gray-400 max-w-md mx-auto mb-16">Real-time charts powered by the best DEX analytics platforms</p>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- DEXTools -->
+                <div class="bg-black rounded-3xl border border-white/10 overflow-hidden">
+                    <div class="px-8 py-6 border-b border-white/10 flex items-center justify-between">
+                        <div class="flex items-center gap-x-3">
+                            <img src="https://www.dextools.io/assets/images/logo.svg" alt="DEXTools" class="h-7">
+                            <div class="font-semibold">DEXTools</div>
+                        </div>
+                        <a href="https://www.dextools.io/app/en/bsc/pair-explorer/0xYOUR_PAIR_ADDRESS_HERE" 
+                           target="_blank"
+                           class="text-xs bg-white/10 hover:bg-white/20 px-5 py-2 rounded-full transition">
+                            Open Full Chart →
+                        </a>
+                    </div>
+                    <!-- Replace the src with your actual SikaToken/BNB pair explorer URL -->
+                    <iframe src="https://www.dextools.io/app/en/bsc/pair-explorer/0xYOUR_PAIR_ADDRESS_HERE" 
+                            width="100%" height="560" frameborder="0" class="w-full"></iframe>
+                </div>
 
-<div class="card">
-<h3>50%</h3>
-<p>Community</p>
-</div>
+                <!-- BscScan Quick View -->
+                <div class="bg-black rounded-3xl p-8 flex flex-col justify-between border border-white/10">
+                    <div>
+                        <div class="uppercase text-xs tracking-widest text-gray-400 mb-2">Contract Address</div>
+                        <a href="https://bscscan.com/address/0xYOUR_CONTRACT_ADDRESS_HERE" target="_blank"
+                           class="font-mono text-lg text-emerald-400 hover:text-emerald-300 break-all block">
+                            0xYOUR_CONTRACT_ADDRESS_HERE
+                        </a>
+                    </div>
+                    
+                    <div class="mt-auto pt-12">
+                        <div class="text-xs text-gray-400">Total Holders</div>
+                        <div class="text-7xl font-bold font-mono text-white">—</div>
+                        <div class="text-emerald-400 text-sm flex items-center gap-2 mt-6">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <span>View full analytics on BscScan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<h3>20%</h3>
-<p>Liquidity</p>
-</div>
+    <!-- QUICK FOOTER CTA -->
+    <div class="bg-gradient-to-r from-yellow-400 to-amber-400 text-black py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="font-semibold text-2xl">Ready to join the Sika movement?</div>
+            <a href="https://pancakeswap.finance/swap?outputCurrency=0xYOUR_CONTRACT_ADDRESS_HERE" target="_blank"
+               class="bg-black text-white px-16 py-6 rounded-3xl font-bold uppercase text-lg flex items-center gap-x-4 hover:scale-105 transition">
+                BUY SIKA ON PANCAKESWAP
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
 
-<div class="card">
-<h3>15%</h3>
-<p>Development</p>
-</div>
+    <!-- FOOTER -->
+    <footer class="bg-black pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-12">
+            <!-- Col 1 -->
+            <div>
+                <div class="flex items-center gap-x-3">
+                    <img src="file_000000004fb471fdbadfcb854bb104a7.png" alt="Logo" class="h-9">
+                    <span class="logo-font text-3xl font-bold">SIKA</span>
+                </div>
+                <p class="text-sm text-gray-400 mt-6 max-w-[180px]">
+                    The people's token on Binance Smart Chain. 
+                    Built with love from Accra, Ghana.
+                </p>
+                <div class="mt-10 flex gap-x-6 text-3xl">
+                    <a href="https://t.me/SikaTokenNews" target="_blank" class="text-[#229ED9]"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://t.me/+AnWHJUKYeJM1MDM0" target="_blank" class="text-[#229ED9]"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://x.com/SikaToken" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
 
-<div class="card">
-<h3>10%</h3>
-<p>Marketing</p>
-</div>
+            <!-- Col 2 -->
+            <div>
+                <div class="text-sm font-semibold mb-6 text-yellow-400">PROJECT</div>
+                <div class="space-y-4 text-sm">
+                    <a href="#tokenomics" class="block hover:text-yellow-400">Tokenomics</a>
+                    <a href="#" class="block hover:text-yellow-400">Whitepaper</a>
+                    <a href="#" class="block hover:text-yellow-400">Audit (Coming Soon)</a>
+                    <a href="#" class="block hover:text-yellow-400">Contract</a>
+                </div>
+            </div>
 
-<div class="card">
-<h3>5%</h3>
-<p>Team</p>
-</div>
+            <!-- Col 3 -->
+            <div>
+                <div class="text-sm font-semibold mb-6 text-yellow-400">COMMUNITY</div>
+                <div class="space-y-4 text-sm">
+                    <a href="https://t.me/SikaTokenNews" target="_blank" class="block hover:text-yellow-400">Telegram News</a>
+                    <a href="https://t.me/+AnWHJUKYeJM1MDM0" target="_blank" class="block hover:text-yellow-400">Telegram Group</a>
+                    <a href="https://x.com/SikaToken" target="_blank" class="block hover:text-yellow-400">𝕏 / Twitter</a>
+                    <a href="#" class="block hover:text-yellow-400">Discord (Soon)</a>
+                </div>
+            </div>
 
-</div>
+            <!-- Col 4 -->
+            <div>
+                <div class="bg-zinc-900 rounded-3xl p-6">
+                    <div class="text-xs uppercase mb-2">Contract on</div>
+                    <a href="https://bscscan.com/address/0xYOUR_CONTRACT_ADDRESS_HERE" target="_blank"
+                       class="flex items-center gap-3 bg-white/5 hover:bg-white/10 transition p-4 rounded-2xl">
+                        <img src="https://bscscan.com/assets/bscscan/favicon.png" class="h-6 w-6">
+                        <div class="text-left">
+                            <div class="text-emerald-400 font-medium">BscScan</div>
+                            <div class="text-xs font-mono text-gray-400">View verified contract</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-</section>
+        <div class="text-center text-[10px] text-gray-600 mt-20">
+            © 2026 SikaToken • All Rights Reserved • SPDX-License-Identifier: MIT
+        </div>
+    </footer>
 
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black z-[9999] pt-20 px-6">
+        <div class="flex flex-col gap-y-8 text-2xl font-medium">
+            <a href="#home" onclick="closeMobileMenu()" class="block">Home</a>
+            <a href="#tokenomics" onclick="closeMobileMenu()" class="block">Tokenomics</a>
+            <a href="#charts" onclick="closeMobileMenu()" class="block">Live Charts</a>
+            <a href="#" onclick="closeMobileMenu()" class="block">Roadmap</a>
+            <a href="#community" onclick="closeMobileMenu()" class="block">Community</a>
+            
+            <div class="pt-8 border-t border-white/20">
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xYOUR_CONTRACT_ADDRESS_HERE" target="_blank"
+                   class="block w-full bg-yellow-400 text-black py-8 text-center rounded-3xl font-bold text-xl">
+                    BUY ON PANCAKESWAP
+                </a>
+            </div>
+        </div>
+    </div>
 
-<section class="section">
+    <script>
+        // Tailwind script already loaded via CDN
+        
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-<h2>Join The Community</h2>
+        // Live BNB Price
+        async function updateBNBPrice() {
+            try {
+                const response = await fetch(
+                    'https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd&include_24hr_change=true'
+                );
+                const data = await response.json();
+                const bnb = data.binancecoin;
+                
+                const priceEl = document.getElementById('bnb-price');
+                const changeEl = document.getElementById('bnb-change');
+                
+                priceEl.textContent = '$' + bnb.usd.toLocaleString('en-US', {minimumFractionDigits: 2});
+                
+                const change = bnb.usd_24h_change.toFixed(2);
+                changeEl.innerHTML = `
+                    <span class="${change > 0 ? 'text-emerald-400' : 'text-red-400'}">
+                        ${change > 0 ? '↑' : '↓'} ${Math.abs(change)}%
+                    </span>
+                    <span class="text-gray-400 text-xs ml-2">24h</span>
+                `;
+            } catch (e) {
+                console.log('BNB price fetch failed');
+            }
+        }
 
-<p>Follow SikaToken and stay updated with the latest news.</p>
+        // Tokenomics Doughnut Chart
+        function createTokenomicsChart() {
+            const ctx = document.getElementById('tokenomicsChart');
+            
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Liquidity Pool (30%)',
+                        'Community & Rewards (50%)',
+                        'Team (5%)',
+                        'Marketing (5%)',
+                        'Partnerships (5%)'
+                    ],
+                    datasets: [{
+                        data: [30, 50, 5, 5, 5],
+                        backgroundColor: [
+                            '#3b82f6',
+                            '#10b981',
+                            '#f59e0b',
+                            '#a855f7',
+                            '#ec4899'
+                        ],
+                        borderColor: '#0a0a0a',
+                        borderWidth: 8,
+                        hoverOffset: 25
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    cutout: '78%',
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                color: '#ddd',
+                                font: { size: 15, family: 'Inter' },
+                                padding: 30,
+                                boxWidth: 18,
+                                boxHeight: 18,
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#111',
+                            titleColor: '#facc15',
+                            bodyColor: '#ccc',
+                            callbacks: {
+                                label: (context) => {
+                                    const percent = context.raw;
+                                    const tokens = Math.round((percent / 100) * 1000000000);
+                                    return `${percent}% • ${tokens.toLocaleString()} SIKA`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
 
-<p>
-
-<a href="#">Telegram</a> |
-<a href="#">Twitter</a> |
-<a href="#">Discord</a>
-
-</p>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 SikaToken. All Rights Reserved.</p>
-
-</footer>
-
+        // Initialize everything
+        window.onload = function() {
+            // Tailwind already active
+            updateBNBPrice();
+            setInterval(updateBNBPrice, 45000);
+            
+            createTokenomicsChart();
+            
+            // Smooth scroll for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+            
+            // Keyboard escape for mobile menu
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "Escape" && !mobileMenu.classList.contains('hidden')) {
+                    closeMobileMenu();
+                }
+            });
+        };
+    </script>
 </body>
 </html>
