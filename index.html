@@ -1,16 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SikaToken - Decentralized Community Token</title>
+  <title>SikaToken – Community-Driven on BNB Chain</title>
+
+  <!-- Google Fonts: Satoshi + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Satoshi:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     :root {
-      --primary: #00d4ff;
       --dark: #0a0e17;
-      --gray: #1e2533;
-      --light: #e0f7ff;
+      --darker: #141b2b;
+      --primary: #00d4ff;       /* electric cyan – main energy */
+      --secondary: #a855f7;     /* neon purple – accent/hover */
+      --text: #e0f7ff;
+      --text-muted: #94a3b8;
+      --green: #22c55e;
+      --card-bg: rgba(30, 37, 51, 0.65);
+      --border-glow: rgba(0, 212, 255, 0.18);
+      --gradient-bg: linear-gradient(135deg, #0a0e17 0%, #0f1a2e 100%);
     }
 
     * {
@@ -20,23 +35,22 @@
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(135deg, #0a0e17 0%, #0f1a2e 100%);
-      color: #ffffff;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--gradient-bg);
+      color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
     }
 
-    /* Header / Hero */
+    /* Header */
     header {
-      position: relative;
-      padding: 1.5rem 5%;
-      background: rgba(10, 14, 23, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 212, 255, 0.12);
       position: sticky;
       top: 0;
       z-index: 1000;
+      background: rgba(10, 14, 23, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-glow);
+      padding: 1.2rem 5%;
     }
 
     .nav-container {
@@ -56,80 +70,89 @@
     }
 
     .logo {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--primary);
+      box-shadow: 0 0 12px rgba(0,212,255,0.4);
     }
 
     h1 {
-      font-size: 1.8rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
       background: linear-gradient(90deg, var(--primary), #a5f3fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     nav a {
-      color: #d1e8ff;
+      font-family: 'Satoshi', sans-serif;
+      color: var(--text-muted);
       text-decoration: none;
-      margin-left: 2rem;
+      margin-left: 2.2rem;
       font-weight: 500;
-      transition: color 0.3s;
+      transition: all 0.3s;
     }
 
     nav a:hover {
       color: var(--primary);
+      text-shadow: 0 0 10px rgba(0,212,255,0.5);
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      padding: 8rem 5% 6rem;
+      padding: 9rem 5% 7rem;
       text-align: center;
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .hero h2 {
-      font-size: 3.2rem;
-      margin-bottom: 1.2rem;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1.3rem;
       line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
     .hero p {
-      font-size: 1.25rem;
-      color: #b3d4ff;
+      font-size: 1.3rem;
+      color: var(--text-muted);
       max-width: 720px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2.8rem;
     }
 
     .cta-buttons {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.6rem;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 0.9rem 2.2rem;
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-family: 'Satoshi', sans-serif;
+      padding: 1rem 2.4rem;
+      font-size: 1.15rem;
+      font-weight: 700;
       border-radius: 50px;
       text-decoration: none;
-      transition: all 0.3s;
-      border: none;
+      transition: all 0.35s;
       cursor: pointer;
     }
 
     .btn-primary {
       background: var(--primary);
       color: #000;
+      box-shadow: 0 8px 25px rgba(0,212,255,0.35);
     }
 
     .btn-primary:hover {
       background: #00eaff;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,212,255,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(0,212,255,0.5);
     }
 
     .btn-outline {
@@ -139,120 +162,131 @@
     }
 
     .btn-outline:hover {
-      background: rgba(0,212,255,0.1);
+      background: rgba(0,212,255,0.12);
+      box-shadow: 0 0 20px rgba(0,212,255,0.3);
     }
 
-    /* Socials */
+    /* Social links */
     .social-links {
-      margin: 2.5rem 0;
+      margin: 3rem 0 1rem;
       display: flex;
       justify-content: center;
-      gap: 1.8rem;
-      font-size: 1.8rem;
+      gap: 2.2rem;
+      font-size: 2rem;
     }
 
     .social-links a {
-      color: #b3d4ff;
-      transition: all 0.3s;
+      color: var(--text-muted);
+      transition: all 0.4s;
     }
 
     .social-links a:hover {
-      color: var(--primary);
-      transform: translateY(-4px);
+      color: var(--secondary);
+      transform: translateY(-5px) scale(1.15);
+      text-shadow: 0 0 15px rgba(168,85,247,0.7);
     }
 
-    /* Tokenomics Section */
+    /* Sections */
     .section {
-      padding: 6rem 5%;
-      max-width: 1200px;
+      padding: 7rem 5%;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
     .section h2 {
+      font-family: 'Satoshi', sans-serif;
       text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 3rem;
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 3.5rem;
       color: var(--primary);
+      text-shadow: 0 0 20px rgba(0,212,255,0.3);
     }
 
+    /* Tokenomics cards */
     .tokenomics-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
     }
 
     .card {
-      background: rgba(30, 37, 51, 0.6);
-      border: 1px solid rgba(0,212,255,0.15);
-      border-radius: 16px;
-      padding: 2rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-glow);
+      border-radius: 20px;
+      padding: 2.2rem;
       text-align: center;
-      backdrop-filter: blur(6px);
-      transition: transform 0.3s;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s;
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
+      transform: translateY(-12px);
+      border-color: var(--secondary);
+      box-shadow: 0 20px 40px rgba(168,85,247,0.18);
     }
 
     .card h3 {
+      font-family: 'Satoshi', sans-serif;
       color: var(--primary);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
     }
 
     .percentage {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #e0f7ff;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 0.6rem;
     }
 
-    /* Charts row */
+    /* Charts */
     .charts {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
-    @media (max-width: 900px) {
-      .charts {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 960px) {
+      .charts { grid-template-columns: 1fr; }
     }
 
     .chart-container {
-      background: rgba(20, 25, 40, 0.7);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 1px solid rgba(0,212,255,0.12);
-      min-height: 420px;
+      background: rgba(20, 25, 40, 0.75);
+      border-radius: 20px;
+      padding: 1.8rem;
+      border: 1px solid var(--border-glow);
+      min-height: 460px;
     }
 
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
+    }
+
+    /* BNB price widget */
+    #bnb-price-widget {
+      background: rgba(0,212,255,0.08);
+      padding: 1.2rem 2rem;
+      border-radius: 16px;
+      margin: 2rem auto;
+      max-width: 420px;
+      text-align: center;
+      font-size: 1.4rem;
+      border: 1px solid var(--border-glow);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 3rem 5% 2rem;
-      color: #8899aa;
-      border-top: 1px solid rgba(0,212,255,0.08);
-    }
-
-    /* Live BNB price widget placeholder */
-    #bnb-price-widget {
-      background: rgba(0,212,255,0.08);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      margin: 1.5rem auto;
-      max-width: 380px;
-      text-align: center;
-      font-size: 1.3rem;
+      padding: 4rem 5% 2.5rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-glow);
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -276,12 +310,11 @@
 
   <main>
     <section class="hero" id="home">
-      <h2>The Community-Driven Token on BNB Chain</h2>
-      <p>Transparent • Fair Launch • Strong Community Focus</p>
+      <h2>Community-Powered Token on BNB Chain</h2>
+      <p>Fair launch • Transparent allocation • Built for the people</p>
 
       <div id="bnb-price-widget">
-        <strong>BNB Price:</strong> <span id="bnb-live">$ Loading...</span>
-        <!-- You can later replace with real widget: CoinGecko, Binance API, etc. -->
+        <strong>Live BNB Price:</strong> <span id="bnb-live">$ Loading live price...</span>
       </div>
 
       <div class="cta-buttons">
@@ -313,12 +346,12 @@
         <div class="card">
           <h3>Liquidity</h3>
           <div class="percentage">30%</div>
-          <p>Locked & Burned</p>
+          <p>Locked & Secured</p>
         </div>
         <div class="card">
           <h3>Community</h3>
           <div class="percentage">50%</div>
-          <p>Airdrops & Rewards</p>
+          <p>Rewards & Airdrops</p>
         </div>
         <div class="card">
           <h3>Team</h3>
@@ -328,31 +361,35 @@
         <div class="card">
           <h3>Marketing</h3>
           <div class="percentage">5%</div>
-          <p>Growth & Promotion</p>
+          <p>Promotion & Growth</p>
         </div>
         <div class="card">
           <h3>Partnerships</h3>
           <div class="percentage">5%</div>
-          <p>Strategic Alliances</p>
+          <p>Strategic Growth</p>
         </div>
       </div>
 
       <div class="charts">
         <div class="chart-container">
-          <h3 style="text-align:center; margin-bottom:1rem; color:var(--primary)">Token Distribution</h3>
-          <!-- Replace with real chart later (Chart.js, apexcharts, or image) -->
+          <h3 style="text-align:center; margin-bottom:1.2rem; color:var(--primary); font-family:'Satoshi',sans-serif;">
+            Token Distribution
+          </h3>
+          <!-- Replace with actual DexScreener embed or Chart.js later -->
           <iframe src="https://dexscreener.com/bsc/YOUR_PAIR_ADDRESS?embed=1&loadChartSettings=0&trades=0&tabs=0" 
                   title="Tokenomics Chart"></iframe>
         </div>
 
         <div class="chart-container">
-          <h3 style="text-align:center; margin-bottom:1rem; color:var(--primary)">DEXTools / Live Chart</h3>
+          <h3 style="text-align:center; margin-bottom:1.2rem; color:var(--primary); font-family:'Satoshi',sans-serif;">
+            Live Trading Chart
+          </h3>
           <iframe src="https://www.dextools.io/app/en/bsc/pair-explorer/YOUR_PAIR_ADDRESS" 
                   title="DEXTools Chart"></iframe>
         </div>
       </div>
 
-      <div style="text-align:center; margin-top:3rem;">
+      <div style="text-align:center; margin-top:4rem;">
         <a href="https://bscscan.com/address/YOUR_CONTRACT_ADDRESS_HERE" 
            target="_blank" class="btn btn-outline">
           <i class="fas fa-link"></i> View Contract on BscScan
@@ -362,7 +399,7 @@
   </main>
 
   <footer>
-    <p>© 2025 SikaToken. All rights reserved. Fair launched on BNB Chain.</p>
+    <p>© 2026 SikaToken. Fair launched on BNB Chain. Community first.</p>
   </footer>
 
 </body>
