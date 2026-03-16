@@ -1,243 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SikaToken - Decentralized Community Token</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #00d4ff;
+      --dark: #0a0e17;
+      --gray: #1e2533;
+      --light: #e0f7ff;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<title>SikaToken</title>
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0a0e17 0%, #0f1a2e 100%);
+      color: #ffffff;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    /* Header / Hero */
+    header {
+      position: relative;
+      padding: 1.5rem 5%;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-<style>
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
 
-body{
-margin:0;
-font-family:Arial;
-background:#000;
-color:white;
-text-align:center;
-}
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-header{
-padding:30px;
-background:#111;
-}
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
 
-.logo{
-width:120px;
-}
+    h1 {
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, var(--primary), #a5f3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-h1{
-color:#FFD700;
-margin-top:10px;
-}
+    nav a {
+      color: #d1e8ff;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
+    nav a:hover {
+      color: var(--primary);
+    }
 
-.hero{
-padding:60px 20px;
-}
+    /* Hero Section */
+    .hero {
+      padding: 8rem 5% 6rem;
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-.hero h2{
-font-size:36px;
-color:#FFD700;
-}
+    .hero h2 {
+      font-size: 3.2rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+    }
 
-.button{
-display:inline-block;
-margin:10px;
-padding:15px 30px;
-background:#FFD700;
-color:black;
-font-weight:bold;
-border-radius:8px;
-text-decoration:none;
-}
+    .hero p {
+      font-size: 1.25rem;
+      color: #b3d4ff;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+    }
 
-.section{
-padding:60px 20px;
-}
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-.tokenomics{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
+    .btn {
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
 
-.card{
-background:#111;
-padding:20px;
-border-radius:10px;
-width:180px;
-}
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+    }
 
-.socials a{
-margin:10px;
-font-size:28px;
-color:#FFD700;
-}
+    .btn-primary:hover {
+      background: #00eaff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,212,255,0.4);
+    }
 
-footer{
-padding:40px;
-background:#111;
-}
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
 
-</style>
+    .btn-outline:hover {
+      background: rgba(0,212,255,0.1);
+    }
 
+    /* Socials */
+    .social-links {
+      margin: 2.5rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      font-size: 1.8rem;
+    }
+
+    .social-links a {
+      color: #b3d4ff;
+      transition: all 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    /* Tokenomics Section */
+    .section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+      color: var(--primary);
+    }
+
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background: rgba(30, 37, 51, 0.6);
+      border: 1px solid rgba(0,212,255,0.15);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .percentage {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e0f7ff;
+    }
+
+    /* Charts row */
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .charts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-container {
+      background: rgba(20, 25, 40, 0.7);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(0,212,255,0.12);
+      min-height: 420px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 5% 2rem;
+      color: #8899aa;
+      border-top: 1px solid rgba(0,212,255,0.08);
+    }
+
+    /* Live BNB price widget placeholder */
+    #bnb-price-widget {
+      background: rgba(0,212,255,0.08);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem auto;
+      max-width: 380px;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="file_000000004fb471fdbadfcb854bb104a7.png" alt="SikaToken Logo" class="logo">
+        <h1>SikaToken</h1>
+      </div>
 
-<img src="file_000000004fb471fdbadfcb854bb104a7.png" class="logo">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#community">Community</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>SikaToken</h1>
+  <main>
+    <section class="hero" id="home">
+      <h2>The Community-Driven Token on BNB Chain</h2>
+      <p>Transparent • Fair Launch • Strong Community Focus</p>
 
-<nav>
+      <div id="bnb-price-widget">
+        <strong>BNB Price:</strong> <span id="bnb-live">$ Loading...</span>
+        <!-- You can later replace with real widget: CoinGecko, Binance API, etc. -->
+      </div>
 
-<a href="#">Home</a>
-<a href="#tokenomics">Tokenomics</a>
-<a href="#community">Community</a>
+      <div class="cta-buttons">
+        <a href="https://pancakeswap.finance/swap?outputCurrency=YOUR_CONTRACT_ADDRESS_HERE" 
+           target="_blank" class="btn btn-primary">
+          <i class="fas fa-shopping-cart"></i> Buy on PancakeSwap
+        </a>
+        <a href="WHITEPAPER_LINK_HERE.pdf" target="_blank" class="btn btn-outline">
+          <i class="fas fa-file-alt"></i> Whitepaper
+        </a>
+      </div>
 
-</nav>
+      <div class="social-links">
+        <a href="https://t.me/SikaTokenNews" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://t.me/+AnWHJUKYeJM1MDM0" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://x.com/SikaToken" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </section>
 
-</header>
+    <section class="section" id="tokenomics">
+      <h2>Tokenomics</h2>
 
+      <div class="tokenomics-grid">
+        <div class="card">
+          <h3>Total Supply</h3>
+          <div class="percentage">1,000,000,000</div>
+          <p>SIKA</p>
+        </div>
+        <div class="card">
+          <h3>Liquidity</h3>
+          <div class="percentage">30%</div>
+          <p>Locked & Burned</p>
+        </div>
+        <div class="card">
+          <h3>Community</h3>
+          <div class="percentage">50%</div>
+          <p>Airdrops & Rewards</p>
+        </div>
+        <div class="card">
+          <h3>Team</h3>
+          <div class="percentage">5%</div>
+          <p>Vested 12 months</p>
+        </div>
+        <div class="card">
+          <h3>Marketing</h3>
+          <div class="percentage">5%</div>
+          <p>Growth & Promotion</p>
+        </div>
+        <div class="card">
+          <h3>Partnerships</h3>
+          <div class="percentage">5%</div>
+          <p>Strategic Alliances</p>
+        </div>
+      </div>
 
-<section class="hero">
+      <div class="charts">
+        <div class="chart-container">
+          <h3 style="text-align:center; margin-bottom:1rem; color:var(--primary)">Token Distribution</h3>
+          <!-- Replace with real chart later (Chart.js, apexcharts, or image) -->
+          <iframe src="https://dexscreener.com/bsc/YOUR_PAIR_ADDRESS?embed=1&loadChartSettings=0&trades=0&tabs=0" 
+                  title="Tokenomics Chart"></iframe>
+        </div>
 
-<h2>The Gold Standard of Crypto</h2>
+        <div class="chart-container">
+          <h3 style="text-align:center; margin-bottom:1rem; color:var(--primary)">DEXTools / Live Chart</h3>
+          <iframe src="https://www.dextools.io/app/en/bsc/pair-explorer/YOUR_PAIR_ADDRESS" 
+                  title="DEXTools Chart"></iframe>
+        </div>
+      </div>
 
-<p>
-SikaToken is a decentralized digital asset built on the Binance Smart Chain
-designed to empower communities through transparency and innovation.
-</p>
+      <div style="text-align:center; margin-top:3rem;">
+        <a href="https://bscscan.com/address/YOUR_CONTRACT_ADDRESS_HERE" 
+           target="_blank" class="btn btn-outline">
+          <i class="fas fa-link"></i> View Contract on BscScan
+        </a>
+      </div>
+    </section>
+  </main>
 
-<a class="button" href="#">Buy on PancakeSwap</a>
-
-<a class="button" href="whitepaper.pdf">Whitepaper</a>
-
-</section>
-
-
-<section class="section">
-
-<h2>Live BNB Price</h2>
-
-<div>
-
-<script src="https://widgets.coingecko.com/coingecko-coin-price-chart-widget.js"></script>
-
-<coingecko-coin-price-chart-widget coin-id="binancecoin"
-currency="usd"
-height="300"
-locale="en">
-</coingecko-coin-price-chart-widget>
-
-</div>
-
-</section>
-
-
-<section id="tokenomics" class="section">
-
-<h2>Tokenomics</h2>
-
-<div class="tokenomics">
-
-<div class="card">
-<h3>50%</h3>
-<p>Community</p>
-</div>
-
-<div class="card">
-<h3>30%</h3>
-<p>Liquidity</p>
-</div>
-
-<div class="card">
-<h3>5%</h3>
-<p>Team (Vested)</p>
-</div>
-
-<div class="card">
-<h3>5%</h3>
-<p>Marketing</p>
-</div>
-
-<div class="card">
-<h3>5%</h3>
-<p>Treasury</p>
-</div>
-
-<div class="card">
-<h3>5%</h3>
-<p>Partnerships</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="section">
-
-<h2>BSC Contract</h2>
-
-<p>
-
-<a class="button" href="#">
-View on BscScan
-</a>
-
-</p>
-
-</section>
-
-
-<section class="section">
-
-<h2>DEXTools Chart</h2>
-
-<p>
-
-Chart will appear here once liquidity is added.
-
-</p>
-
-</section>
-
-
-<section id="community" class="section">
-
-<h2>Join the Community</h2>
-
-<div class="socials">
-
-<a href="https://t.me/SikaTokenNews"><i class="fab fa-telegram"></i></a>
-
-<a href="https://x.com/SikaToken"><i class="fab fa-x-twitter"></i></a>
-
-<a href="#"><i class="fab fa-discord"></i></a>
-
-</div>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 SikaToken. All Rights Reserved.</p>
-
-</footer>
+  <footer>
+    <p>© 2025 SikaToken. All rights reserved. Fair launched on BNB Chain.</p>
+  </footer>
 
 </body>
 </html>
