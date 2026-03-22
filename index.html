@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SikaToken Whitepaper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SikaToken Whitepaper</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f0c;
+  color: #ffffff;
+  line-height: 1.6;
+}
 
-    header {
-      background: #000;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid gold;
-    }
+header {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #00ff88;
+}
 
-    header img {
-      width: 80px;
-    }
+header img {
+  width: 90px;
+}
 
-    h1, h2 {
-      color: gold;
-    }
+h1 {
+  color: #00ff88;
+}
 
-    .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+h2 {
+  color: #00ff88;
+  margin-top: 40px;
+}
 
-    .section {
-      margin-bottom: 40px;
-    }
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
 
-    .card {
-      background: #111;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
+.section {
+  margin-bottom: 30px;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #333;
-      margin-top: 40px;
-      color: #aaa;
-    }
+.card {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 
-    a {
-      color: gold;
-      text-decoration: none;
-    }
-  </style>
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+  color: #aaa;
+}
+</style>
 </head>
 
 <body>
@@ -66,133 +70,223 @@
 <header>
   <img src="file_000000004fb471fdbadfcb854bb104a7.png" alt="Sika Logo">
   <h1>SikaToken Whitepaper</h1>
-  <p>Digital Wealth Built on BNB Smart Chain</p>
+  <p>Technical & Investor-Grade Documentation</p>
 </header>
 
 <div class="container">
 
-  <!-- INTRO -->
-  <div class="section">
-    <h2>1. Introduction</h2>
-    <div class="card">
-      <p>
-        SikaToken is a community-driven digital asset built on the BNB Smart Chain. 
-        It focuses on onboarding new users into the crypto ecosystem through incentives, 
-        education, and structured token distribution.
-      </p>
-    </div>
-  </div>
+<!-- 1 -->
+<div class="section">
+<h2>1. Abstract</h2>
+<div class="card">
+SikaToken (SIKA) is a BEP-20 digital asset deployed on the BNB Smart Chain, designed to drive scalable user onboarding through a hybrid model combining off-chain engagement and on-chain token distribution. The protocol introduces a structured airdrop with vesting, liquidity-controlled market entry, and utility-driven mechanisms including staking, governance, and deflationary supply control.
+</div>
+</div>
 
-  <!-- PROBLEM -->
-  <div class="section">
-    <h2>2. Problem</h2>
-    <div class="card">
-      <p>
-        Many users are unable to access or understand cryptocurrency due to lack of education, 
-        high entry barriers, and limited incentives. Most projects fail to build strong communities 
-        before launch, leading to poor adoption and rapid token dumping.
-      </p>
-    </div>
-  </div>
+<!-- 2 -->
+<div class="section">
+<h2>2. Vision</h2>
+<div class="card">
+<ul>
+<li>Lowering entry barriers</li>
+<li>Incentivizing participation</li>
+<li>Enabling decentralized governance</li>
+<li>Supporting sustainable token economics</li>
+</ul>
+</div>
+</div>
 
-  <!-- SOLUTION -->
-  <div class="section">
-    <h2>3. Solution</h2>
-    <div class="card">
-      <p>
-        SikaToken solves this by implementing a structured airdrop and vesting system that rewards 
-        early users while controlling token supply. The project builds a strong community before 
-        liquidity launch, ensuring sustainable growth and engagement.
-      </p>
-    </div>
-  </div>
+<!-- 3 -->
+<div class="section">
+<h2>3. System Architecture</h2>
+<div class="card">
+<strong>Off-Chain Layer</strong>
+<ul>
+<li>User onboarding via campaign platforms</li>
+<li>Social engagement verification</li>
+<li>Wallet collection and filtering</li>
+</ul>
 
-  <!-- TOKEN DETAILS -->
-  <div class="section">
-    <h2>4. Token Details</h2>
-    <div class="card">
-      <p><strong>Name:</strong> SikaToken</p>
-      <p><strong>Symbol:</strong> SIKA</p>
-      <p><strong>Network:</strong> BNB Smart Chain</p>
-      <p><strong>Total Supply:</strong> 1,000,000,000 SIKA</p>
-    </div>
-  </div>
+<strong>On-Chain Layer</strong>
+<ul>
+<li>BEP-20 token contract</li>
+<li>Merkle-based airdrop</li>
+<li>Vesting contract</li>
+<li>DEX liquidity pool</li>
+<li>Staking & governance modules</li>
+</ul>
+</div>
+</div>
 
-  <!-- TOKENOMICS -->
-  <div class="section">
-    <h2>5. Tokenomics</h2>
-    <div class="card">
-      <p>50% — Community & Airdrop</p>
-      <p>30% — Liquidity</p>
-      <p>5% — Team</p>
-      <p>5% — Marketing</p>
-      <p>5% — Partnerships</p>
-      <p>5% — Development</p>
-    </div>
-  </div>
+<!-- 4 -->
+<div class="section">
+<h2>4. Token Specification</h2>
+<div class="card">
+<p>Name: SikaToken</p>
+<p>Symbol: SIKA</p>
+<p>Standard: BEP-20</p>
+<p>Network: BNB Smart Chain</p>
+<p>Total Supply: 1,000,000,000</p>
+<p>Decimals: 18</p>
+</div>
+</div>
 
-  <!-- AIRDROP -->
-  <div class="section">
-    <h2>6. Airdrop Model</h2>
-    <div class="card">
-      <p>
-        SikaToken distributes tokens to early users through a structured airdrop campaign.
-      </p>
-      <p><strong>Total Airdrop:</strong> 100,000,000 SIKA</p>
-      <p><strong>Total Users:</strong> 200,000</p>
-      <p><strong>Reward per User:</strong> 500 SIKA</p>
-    </div>
-  </div>
+<!-- 5 -->
+<div class="section">
+<h2>5. Tokenomics</h2>
+<div class="card">
+<ul>
+<li>50% — Community</li>
+<li>30% — Liquidity</li>
+<li>5% — Team</li>
+<li>5% — Marketing</li>
+<li>5% — Partnerships</li>
+<li>5% — Treasury & Development</li>
+</ul>
+</div>
+</div>
 
-  <!-- VESTING -->
-  <div class="section">
-    <h2>7. Vesting Mechanism</h2>
-    <div class="card">
-      <p>20% available immediately after claim</p>
-      <p>80% released weekly over 4 weeks</p>
-      <p>
-        This prevents early dumping and ensures long-term participation and price stability.
-      </p>
-    </div>
-  </div>
+<!-- 6 -->
+<div class="section">
+<h2>6. Airdrop Distribution</h2>
+<div class="card">
+<p>Total: 100,000,000 SIKA</p>
+<p>Users: 200,000</p>
+<p>Reward: 500 SIKA per user</p>
 
-  <!-- ROADMAP -->
-  <div class="section">
-    <h2>8. Roadmap</h2>
-    <div class="card">
-      <p><strong>Phase 1:</strong> Website Launch & Community Building</p>
-      <p><strong>Phase 2:</strong> Airdrop Campaign</p>
-      <p><strong>Phase 3:</strong> Liquidity Launch</p>
-      <p><strong>Phase 4:</strong> Airdrop Claim Activation</p>
-      <p><strong>Phase 5:</strong> Ecosystem Expansion</p>
-    </div>
-  </div>
+<ul>
+<li>Users complete off-chain tasks</li>
+<li>Wallets verified</li>
+<li>Merkle root generated</li>
+<li>Claim via smart contract</li>
+</ul>
+</div>
+</div>
 
-  <!-- CONTRACT -->
-  <div class="section">
-    <h2>9. Smart Contract</h2>
-    <div class="card">
-      <p>
-        The SikaToken smart contract is deployed on BNB Smart Chain and will be verified 
-        for transparency. Liquidity will be locked to ensure trust and long-term stability.
-      </p>
-    </div>
-  </div>
+<!-- 7 -->
+<div class="section">
+<h2>7. Vesting Model</h2>
+<div class="card">
+<ul>
+<li>20% unlocked at claim</li>
+<li>80% released weekly over 4 weeks</li>
+</ul>
+<p>Prevents dumping and stabilizes price.</p>
+</div>
+</div>
 
-  <!-- SOCIALS -->
-  <div class="section">
-    <h2>10. Community</h2>
-    <div class="card">
-      <p><a href="https://t.me/SikaTokenNews">Telegram Channel</a></p>
-      <p><a href="https://t.me/+AnWHJUKYeJM1MDM0">Telegram Group</a></p>
-      <p><a href="https://x.com/SikaToken">X (Twitter)</a></p>
-    </div>
-  </div>
+<!-- 8 -->
+<div class="section">
+<h2>8. Liquidity Strategy</h2>
+<div class="card">
+<ul>
+<li>DEX launch</li>
+<li>Controlled circulating supply</li>
+<li>Liquidity lock</li>
+<li>Trading before airdrop claim</li>
+</ul>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="section">
+<h2>9. Token Utility</h2>
+
+<div class="card">
+<h3>Staking</h3>
+<ul>
+<li>Fixed & flexible pools</li>
+<li>Earn SIKA rewards</li>
+<li>Encourages holding</li>
+</ul>
+
+<h3>Governance</h3>
+<ul>
+<li>1 SIKA = 1 vote</li>
+<li>Protocol decisions</li>
+<li>Treasury allocation</li>
+</ul>
+
+<h3>Burn Mechanism</h3>
+<ul>
+<li>Buyback & burn</li>
+<li>Optional transaction burn</li>
+<li>Supply reduction</li>
+</ul>
+
+<h3>Ecosystem Utility</h3>
+<ul>
+<li>Payments</li>
+<li>Rewards</li>
+<li>Partner integrations</li>
+</ul>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="section">
+<h2>10. Security</h2>
+<div class="card">
+<ul>
+<li>Verified contracts</li>
+<li>Liquidity locking</li>
+<li>Fixed supply</li>
+<li>Vesting enforcement</li>
+</ul>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="section">
+<h2>11. Community Growth</h2>
+<div class="card">
+<ul>
+<li>Incentivized onboarding</li>
+<li>Social engagement</li>
+<li>Future referrals</li>
+<li>Transparency</li>
+</ul>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="section">
+<h2>12. Roadmap</h2>
+<div class="card">
+<p>Phase 1: Foundation</p>
+<p>Phase 2: Community Growth</p>
+<p>Phase 3: Pre-Launch</p>
+<p>Phase 4: Launch</p>
+<p>Phase 5: Post-Launch</p>
+<p>Phase 6: Ecosystem Expansion</p>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="section">
+<h2>13. Risk Factors</h2>
+<div class="card">
+<ul>
+<li>Market volatility</li>
+<li>Low liquidity</li>
+<li>User retention</li>
+<li>Smart contract risk</li>
+</ul>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="section">
+<h2>14. Conclusion</h2>
+<div class="card">
+SikaToken combines structured distribution, controlled liquidity, staking, governance, and deflationary mechanisms to create a sustainable and scalable ecosystem on BNB Smart Chain.
+</div>
+</div>
 
 </div>
 
 <footer>
-  <p>© 2026 SikaToken. All rights reserved.</p>
+<p>© 2026 SikaToken. All rights reserved.</p>
 </footer>
 
 </body>
