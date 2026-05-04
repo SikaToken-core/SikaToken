@@ -6,80 +6,109 @@
 <title>SikaToken Whitepaper</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: #050505;
-        color: #e5e5e5;
-        line-height: 1.6;
-    }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #050505;
+    color: #e5e5e5;
+    line-height: 1.6;
+}
 
-    header {
-        background: linear-gradient(135deg, #0b1f14, #000);
-        text-align: center;
-        padding: 60px 20px;
-        border-bottom: 1px solid #1a1a1a;
-    }
+header {
+    background: linear-gradient(135deg, #0b1f14, #000);
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 1px solid #1a1a1a;
+}
 
-    header h1 {
-        color: gold;
-        font-size: 42px;
-        margin-bottom: 10px;
-    }
+header h1 {
+    color: gold;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
 
-    header p {
-        color: #9be58f;
-        font-size: 18px;
-    }
+header p {
+    color: #9be58f;
+    font-size: 18px;
+}
 
-    section {
-        max-width: 900px;
-        margin: auto;
-        padding: 40px 20px;
-        border-bottom: 1px solid #111;
-    }
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid gold;
+    border-radius: 20px;
+    margin: 5px;
+    color: gold;
+    text-decoration: none;
+}
 
-    h2 {
-        color: gold;
-        margin-bottom: 10px;
-    }
+.badge:hover {
+    background: gold;
+    color: black;
+}
 
-    h3 {
-        color: #9be58f;
-    }
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    border-bottom: 1px solid #111;
+}
 
-    ul {
-        padding-left: 20px;
-    }
+h2 {
+    color: gold;
+}
 
-    .highlight {
-        color: gold;
-        font-weight: bold;
-    }
+h3 {
+    color: #9be58f;
+}
 
-    .tokenomics {
-        background: #0b1f14;
-        padding: 20px;
-        border-radius: 10px;
-    }
+ul {
+    padding-left: 20px;
+}
 
-    footer {
-        text-align: center;
-        padding: 30px;
-        color: #777;
-        font-size: 14px;
-    }
+.highlight {
+    color: gold;
+    font-weight: bold;
+}
 
-    .badge {
-        display: inline-block;
-        padding: 6px 12px;
-        border: 1px solid gold;
-        border-radius: 20px;
-        margin: 5px;
-        color: gold;
-    }
+.tokenomics {
+    background: #0b1f14;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.links-box {
+    background: #0b1f14;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #1a1a1a;
+}
+
+.links-box a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links-box a:hover {
+    color: #9be58f;
+}
+
+.contract-box {
+    background: #000;
+    padding: 12px;
+    border-radius: 8px;
+    color: #9be58f;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
 </style>
-
 </head>
 
 <body>
@@ -87,57 +116,44 @@
 <header>
     <h1>SikaToken (SIKA)</h1>
     <p>Liquidity-First • Utility-Driven • Community-Powered</p>
+
+    <div style="margin-top:20px;">
+        <a href="https://bscscan.com/address/0x00e3eC8961ec0d09f30608dbdABf8a9ead28E10d" target="_blank" class="badge">BscScan</a>
+        <a href="https://t.me/SikaToken" target="_blank" class="badge">Telegram</a>
+        <a href="https://x.com/SikaToken" target="_blank" class="badge">X</a>
+    </div>
 </header>
 
 <section>
     <h2>1. Abstract</h2>
     <p>
-        SikaToken (SIKA) is a BEP-20 digital asset built on the BNB Smart Chain,
-        designed to drive scalable adoption through a <span class="highlight">liquidity-first model</span>,
-        structured onboarding, and real utility.
+        SikaToken (SIKA) is a BEP-20 token built on BNB Smart Chain, designed with a 
+        <span class="highlight">liquidity-first model</span> to ensure stability, fairness, and long-term growth.
     </p>
 </section>
 
 <section>
     <h2>2. Vision</h2>
     <ul>
-        <li>Lower entry barriers into crypto</li>
-        <li>Reward participation</li>
-        <li>Enable transparent tokenomics</li>
-        <li>Build long-term sustainability</li>
+        <li>Lower barriers to crypto adoption</li>
+        <li>Provide real utility beyond speculation</li>
+        <li>Build a transparent and trusted ecosystem</li>
+        <li>Reward long-term community participation</li>
     </ul>
 </section>
 
 <section>
-    <h2>3. System Architecture</h2>
-
-    <h3>Off-Chain Layer</h3>
-    <ul>
-        <li>Campaign onboarding</li>
-        <li>Social verification</li>
-        <li>User engagement tracking</li>
-    </ul>
-
-    <h3>On-Chain Layer</h3>
-    <ul>
-        <li>BEP-20 smart contract</li>
-        <li>Merkle-based airdrop</li>
-        <li>Staking (future)</li>
-    </ul>
-</section>
-
-<section>
-    <h2>4. Token Specification</h2>
+    <h2>3. Token Specification</h2>
     <ul>
         <li><strong>Name:</strong> SikaToken</li>
         <li><strong>Symbol:</strong> SIKA</li>
-        <li><strong>Supply:</strong> 1,000,000,000</li>
+        <li><strong>Total Supply:</strong> 1,000,000,000</li>
         <li><strong>Network:</strong> BNB Smart Chain</li>
     </ul>
 </section>
 
 <section>
-    <h2>5. Tokenomics</h2>
+    <h2>4. Tokenomics</h2>
     <div class="tokenomics">
         <ul>
             <li><span class="highlight">70% Liquidity</span></li>
@@ -150,63 +166,71 @@
 </section>
 
 <section>
-    <h2>6. Liquidity Strategy</h2>
+    <h2>5. Liquidity Strategy</h2>
     <ul>
-        <li>Liquidity provided via funding & partners</li>
-        <li>DEX: PancakeSwap</li>
         <li>Pair: SIKA / BNB</li>
+        <li>DEX: PancakeSwap</li>
         <li>Liquidity lock: 6–12 months</li>
+        <li>Focus on deep liquidity for stability</li>
     </ul>
 </section>
 
 <section>
-    <h2>7. Airdrop</h2>
-    <p>Targeted and engagement-based distribution using Merkle proof system.</p>
-</section>
-
-<section>
-    <h2>8. Vesting</h2>
+    <h2>6. Utility</h2>
     <ul>
-        <li>20% unlock at claim</li>
-        <li>80% released over 4 weeks</li>
+        <li>Staking rewards</li>
+        <li>AI-powered crypto tools</li>
+        <li>Community incentives</li>
     </ul>
 </section>
 
 <section>
-    <h2>9. Utility</h2>
-
-    <div class="badge">Staking</div>
-    <div class="badge">AI Tools</div>
-    <div class="badge">Rewards</div>
-    <div class="badge">Governance</div>
-
-    <p>
-        SIKA powers staking rewards, AI-based crypto tools, and ecosystem participation.
-    </p>
-</section>
-
-<section>
-    <h2>10. Security</h2>
+    <h2>7. Roadmap</h2>
     <ul>
-        <li>Verified contract</li>
-        <li>Fixed supply</li>
-        <li>Liquidity locking</li>
-    </ul>
-</section>
-
-<section>
-    <h2>11. Roadmap</h2>
-    <ul>
-        <li>Phase 1: Deployment</li>
-        <li>Phase 2: Community growth</li>
+        <li>Phase 1: Contract deployment & verification</li>
+        <li>Phase 2: Community building</li>
         <li>Phase 3: Liquidity launch</li>
-        <li>Phase 4: Staking</li>
-        <li>Phase 5: AI tools</li>
+        <li>Phase 4: Staking release</li>
+        <li>Phase 5: AI tools launch</li>
     </ul>
 </section>
 
 <section>
-    <h2>12. Conclusion</h2>
+    <h2>8. Official Links</h2>
+
+    <div class="links-box">
+        <p><strong>Contract Address:</strong></p>
+
+        <div class="contract-box">
+            0x00e3eC8961ec0d09f30608dbdABf8a9ead28E10d
+        </div>
+
+        <br>
+
+        <a href="https://bscscan.com/address/0x00e3eC8961ec0d09f30608dbdABf8a9ead28E10d" target="_blank">
+            🔍 View on BscScan
+        </a>
+
+        <p style="margin-top:20px;"><strong>Social Channels:</strong></p>
+
+        <ul>
+            <li><a href="https://x.com/SikaToken" target="_blank">X (Twitter)</a></li>
+            <li><a href="https://t.me/SikaToken" target="_blank">Telegram</a></li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>9. Security</h2>
+    <ul>
+        <li>Verified smart contract</li>
+        <li>Fixed total supply</li>
+        <li>Liquidity locking planned</li>
+    </ul>
+</section>
+
+<section>
+    <h2>10. Conclusion</h2>
     <p>
         SikaToken combines <span class="highlight">liquidity strength, utility, and transparency</span>
         to build a sustainable ecosystem on BNB Chain.
@@ -218,4 +242,4 @@
 </footer>
 
 </body>
-  </html>
+</html>
