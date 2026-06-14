@@ -3,243 +3,547 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SikaToken Whitepaper</title>
+
+<title>SikaEarn</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #050505;
-    color: #e5e5e5;
-    line-height: 1.6;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
-header {
-    background: linear-gradient(135deg, #0b1f14, #000);
-    text-align: center;
-    padding: 60px 20px;
-    border-bottom: 1px solid #1a1a1a;
+body{
+background:#0b0b0b;
+color:#ffffff;
 }
 
-header h1 {
-    color: gold;
-    font-size: 42px;
-    margin-bottom: 10px;
+.container{
+max-width:1400px;
+margin:auto;
+padding:30px;
 }
 
-header p {
-    color: #9be58f;
-    font-size: 18px;
+section{
+margin-bottom:60px;
 }
 
-.badge {
-    display: inline-block;
-    padding: 6px 14px;
-    border: 1px solid gold;
-    border-radius: 20px;
-    margin: 5px;
-    color: gold;
-    text-decoration: none;
+h2,h3{
+margin-bottom:20px;
 }
 
-.badge:hover {
-    background: gold;
-    color: black;
+button{
+background:#1EFF8E;
+color:#000;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
 }
 
-section {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
-    border-bottom: 1px solid #111;
+button:hover{
+opacity:.9;
+transform:translateY(-2px);
 }
 
-h2 {
-    color: gold;
+input,select{
+width:100%;
+padding:12px;
+background:#151515;
+border:1px solid #2a2a2a;
+color:#fff;
+border-radius:10px;
+margin-top:10px;
 }
 
-h3 {
-    color: #9be58f;
+.earn-header{
+text-align:center;
+padding:60px 0;
 }
 
-ul {
-    padding-left: 20px;
+.earn-header img{
+width:90px;
+margin-bottom:15px;
 }
 
-.highlight {
-    color: gold;
-    font-weight: bold;
+.earn-header h2{
+font-size:48px;
+color:#1EFF8E;
 }
 
-.tokenomics {
-    background: #0b1f14;
-    padding: 20px;
-    border-radius: 10px;
+.earn-header p{
+opacity:.8;
+margin-top:10px;
 }
 
-.links-box {
-    background: #0b1f14;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #1a1a1a;
+.stats-grid,
+.portfolio-grid,
+.plan-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-.links-box a {
-    color: gold;
-    text-decoration: none;
-    font-weight: bold;
+.card,
+.stat-card,
+.plan-card{
+background:#141414;
+border:1px solid #242424;
+border-radius:20px;
+padding:25px;
 }
 
-.links-box a:hover {
-    color: #9be58f;
+.stat-card span,
+.card span{
+font-size:22px;
+font-weight:bold;
+color:#1EFF8E;
 }
 
-.contract-box {
-    background: #000;
-    padding: 12px;
-    border-radius: 8px;
-    color: #9be58f;
-    font-size: 14px;
-    word-break: break-all;
+.plan-card{
+text-align:center;
+transition:.3s;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #777;
+.plan-card:hover{
+transform:translateY(-5px);
+border-color:#1EFF8E;
 }
+
+.featured{
+border:2px solid #1EFF8E;
+box-shadow:0 0 20px rgba(30,255,142,.25);
+}
+
+.plan-card h4{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.plan-card span{
+display:block;
+margin:15px 0;
+color:#1EFF8E;
+font-weight:bold;
+}
+
+.stake-box{
+background:#141414;
+padding:30px;
+border-radius:20px;
+}
+
+.stake-actions{
+display:flex;
+gap:10px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.positions table,
+.leaderboard table{
+width:100%;
+border-collapse:collapse;
+overflow:hidden;
+}
+
+.positions th,
+.positions td,
+.leaderboard th,
+.leaderboard td{
+padding:15px;
+border-bottom:1px solid #222;
+text-align:center;
+}
+
+.progress-bar{
+height:18px;
+background:#222;
+border-radius:100px;
+overflow:hidden;
+margin:20px 0;
+}
+
+#rewardFill{
+width:15%;
+height:100%;
+background:#1EFF8E;
+}
+
+.reward-info{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.referral{
+background:#141414;
+padding:30px;
+border-radius:20px;
+}
+
+.ref-stats{
+margin-top:20px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.security ul{
+list-style:none;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.security li{
+background:#141414;
+padding:15px;
+border-radius:10px;
+}
+
+.green{
+color:#1EFF8E;
+}
+
+.warning{
+color:#ffb347;
+font-size:14px;
+margin-top:10px;
+}
+
+.top-actions{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>SikaToken (SIKA)</h1>
-    <p>Liquidity-First • Utility-Driven • Community-Powered</p>
+<div class="container">
 
-    <div style="margin-top:20px;">
-        <a href="https://bscscan.com/address/0x00e3eC8961ec0d09f30608dbdABf8a9ead28E10d" target="_blank" class="badge">BscScan</a>
-        <a href="https://t.me/SikaToken" target="_blank" class="badge">Telegram</a>
-        <a href="https://x.com/SikaToken" target="_blank" class="badge">X</a>
-    </div>
-</header>
+<!-- HERO -->
 
-<section>
-    <h2>1. Abstract</h2>
-    <p>
-        SikaToken (SIKA) is a BEP-20 token built on BNB Smart Chain, designed with a 
-        <span class="highlight">liquidity-first model</span> to ensure stability, fairness, and long-term growth.
-    </p>
+<section class="earn-header">
+
+<img src="YOUR_SIKA_LOGO.png">
+
+<h2>💚 SikaEarn</h2>
+
+<p>
+Stake SIKA and earn rewards while supporting the ecosystem.
+</p>
+
+<div class="top-actions">
+<button>Start Earning</button>
+<button>Buy SIKA</button>
+</div>
+
 </section>
 
-<section>
-    <h2>2. Vision</h2>
-    <ul>
-        <li>Lower barriers to crypto adoption</li>
-        <li>Provide real utility beyond speculation</li>
-        <li>Build a transparent and trusted ecosystem</li>
-        <li>Reward long-term community participation</li>
-    </ul>
-</section>
+<!-- STATS -->
 
 <section>
-    <h2>3. Token Specification</h2>
-    <ul>
-        <li><strong>Name:</strong> SikaToken</li>
-        <li><strong>Symbol:</strong> SIKA</li>
-        <li><strong>Total Supply:</strong> 1,000,000,000</li>
-        <li><strong>Network:</strong> BNB Smart Chain</li>
-    </ul>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>Total Value Locked</h3>
+<span>$0</span>
+</div>
+
+<div class="stat-card">
+<h3>Total SIKA Staked</h3>
+<span>0</span>
+</div>
+
+<div class="stat-card">
+<h3>Reward Pool</h3>
+<span>150M SIKA</span>
+</div>
+
+<div class="stat-card">
+<h3>Remaining Rewards</h3>
+<span>150M SIKA</span>
+</div>
+
+</div>
+
 </section>
+
+<!-- PORTFOLIO -->
 
 <section>
-    <h2>4. Tokenomics</h2>
-    <div class="tokenomics">
-        <ul>
-            <li><span class="highlight">70% Liquidity</span></li>
-            <li>15% Staking Rewards</li>
-            <li>7% Marketing</li>
-            <li>5% Airdrop</li>
-            <li>3% Team (Vested)</li>
-        </ul>
-    </div>
+
+<h3>My Portfolio</h3>
+
+<div class="portfolio-grid">
+
+<div class="card">
+<label>Wallet Balance</label>
+<br><br>
+<span id="walletBalance">0 SIKA</span>
+</div>
+
+<div class="card">
+<label>Total Staked</label>
+<br><br>
+<span id="userStaked">0 SIKA</span>
+</div>
+
+<div class="card">
+<label>Pending Rewards</label>
+<br><br>
+<span id="pendingRewards">0 SIKA</span>
+</div>
+
+<div class="card">
+<label>Lifetime Rewards</label>
+<br><br>
+<span id="lifetimeRewards">0 SIKA</span>
+</div>
+
+</div>
+
 </section>
+
+<!-- EARN PLANS -->
 
 <section>
-    <h2>5. Liquidity Strategy</h2>
-    <ul>
-        <li>Pair: SIKA / BNB</li>
-        <li>DEX: PancakeSwap</li>
-        <li>Liquidity lock: 6–12 months</li>
-        <li>Focus on deep liquidity for stability</li>
-    </ul>
+
+<h3>Choose Your Earn Plan</h3>
+
+<div class="plan-grid">
+
+<div class="plan-card">
+<h4>Flexible Earn</h4>
+<p>Withdraw Anytime</p>
+<span>1.0x</span>
+<button>Earn Now</button>
+</div>
+
+<div class="plan-card">
+<h4>7 Days</h4>
+<p>Boosted Rewards</p>
+<span>1.2x</span>
+<button>Earn Now</button>
+</div>
+
+<div class="plan-card">
+<h4>30 Days</h4>
+<p>Popular</p>
+<span>1.5x</span>
+<button>Earn Now</button>
+</div>
+
+<div class="plan-card">
+<h4>90 Days</h4>
+<p>Best Value</p>
+<span>2x</span>
+<button>Earn Now</button>
+</div>
+
+<div class="plan-card featured">
+<h4>180 Days 🚀</h4>
+<p>Maximum Rewards</p>
+<span>3x</span>
+<button>Earn Now</button>
+</div>
+
+</div>
+
 </section>
+
+<!-- STAKE -->
+
+<section class="stake-box">
+
+<h3>Start Earning</h3>
+
+<input
+type="number"
+placeholder="Enter SIKA amount"
+id="stakeAmount"
+>
+
+<select id="lockDays">
+<option value="0">Flexible</option>
+<option value="7">7 Days</option>
+<option value="30">30 Days</option>
+<option value="90">90 Days</option>
+<option value="180">180 Days</option>
+</select>
+
+<div class="stake-actions">
+<button id="stakeBtn">Stake SIKA</button>
+<button id="maxBtn">MAX</button>
+</div>
+
+</section>
+
+<!-- POSITIONS -->
+
+<section class="positions">
+
+<h3>My Active Positions</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Amount</th>
+<th>Plan</th>
+<th>Rewards</th>
+<th>Unlock</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>0</td>
+<td>30 Days</td>
+<td>0</td>
+<td>-</td>
+<td>
+
+<button>Claim</button>
+<button>Compound</button>
+<button>Withdraw</button>
+
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<div class="warning">
+⚠ Early Withdraw burns 10% of principal and forfeits rewards.
+</div>
+
+</section>
+
+<!-- REWARD POOL -->
 
 <section>
-    <h2>6. Utility</h2>
-    <ul>
-        <li>Staking rewards</li>
-        <li>AI-powered crypto tools</li>
-        <li>Community incentives</li>
-    </ul>
+
+<h3>Reward Pool Status</h3>
+
+<div class="progress-bar">
+<div id="rewardFill"></div>
+</div>
+
+<div class="reward-info">
+
+<span>Allocated: 150M SIKA</span>
+
+<span>Distributed: 0 SIKA</span>
+
+<span>Remaining: 150M SIKA</span>
+
+</div>
+
 </section>
 
-<section>
-    <h2>7. Roadmap</h2>
-    <ul>
-        <li>Phase 1: Contract deployment & verification</li>
-        <li>Phase 2: Community building</li>
-        <li>Phase 3: Liquidity launch</li>
-        <li>Phase 4: Staking release</li>
-        <li>Phase 5: AI tools launch</li>
-    </ul>
+<!-- LEADERBOARD -->
+
+<section class="leaderboard">
+
+<h3>🏆 Top Earners</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Rank</th>
+<th>Wallet</th>
+<th>Staked</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>#1</td>
+<td>0x1234...5678</td>
+<td>0</td>
+</tr>
+
+</tbody>
+
+</table>
+
 </section>
 
-<section>
-    <h2>8. Official Links</h2>
+<!-- REFERRAL -->
 
-    <div class="links-box">
-        <p><strong>Contract Address:</strong></p>
+<section class="referral">
 
-        <div class="contract-box">
-            0x00e3eC8961ec0d09f30608dbdABf8a9ead28E10d
-        </div>
+<h3>🎁 Refer & Earn</h3>
 
-        <br>
+<input
+type="text"
+value="https://sikatoken.com/ref/yourwallet"
+readonly
+>
 
-        <a href="https://bscscan.com/address/0x00e3eC8961ec0d09f30608dbdABf8a9ead28E10d" target="_blank">
-            🔍 View on BscScan
-        </a>
+<br><br>
 
-        <p style="margin-top:20px;"><strong>Social Channels:</strong></p>
+<button>
+Copy Link
+</button>
 
-        <ul>
-            <li><a href="https://x.com/SikaToken" target="_blank">X (Twitter)</a></li>
-            <li><a href="https://t.me/SikaToken" target="_blank">Telegram</a></li>
-        </ul>
-    </div>
+<div class="ref-stats">
+
+<span>
+Friends Joined: 0
+</span>
+
+<span>
+Rewards Earned: 0 SIKA
+</span>
+
+</div>
+
 </section>
 
-<section>
-    <h2>9. Security</h2>
-    <ul>
-        <li>Verified smart contract</li>
-        <li>Fixed total supply</li>
-        <li>Liquidity locking planned</li>
-    </ul>
+<!-- SECURITY -->
+
+<section class="security">
+
+<h3>🛡 Security</h3>
+
+<ul>
+
+<li>✅ Verified Smart Contract</li>
+
+<li>✅ Open Source</li>
+
+<li>✅ Fully Funded Rewards</li>
+
+<li>✅ Non-Custodial</li>
+
+<li>✅ User Controlled Funds</li>
+
+<li>✅ Transparent Reward Pool</li>
+
+</ul>
+
 </section>
 
-<section>
-    <h2>10. Conclusion</h2>
-    <p>
-        SikaToken combines <span class="highlight">liquidity strength, utility, and transparency</span>
-        to build a sustainable ecosystem on BNB Chain.
-    </p>
-</section>
-
-<footer>
-    Powered by BNB Chain • © 2026 SikaToken
-</footer>
+</div>
 
 </body>
-</html>
+    </html>
